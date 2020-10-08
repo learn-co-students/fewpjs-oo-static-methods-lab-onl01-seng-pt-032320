@@ -10,8 +10,7 @@ static sanitize(string) {
 static titleize(string) {
   let ignore = ['the', 'a', 'an', 'but', 'of', 'and', 'for', 'at', 'by', 'from'];
   let words = string.split(' ') 
-  let results;
-  results = words.map((w) => {
+  let results = words.map((w) => {
     if (w === words[0]) {
       return this.capitalize(w) 
     } else if (!ignore.includes(w)) {
