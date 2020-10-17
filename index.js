@@ -1,3 +1,26 @@
 class Formatter {
-  //add static methods here
+  static capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  static sanitize(string) {
+    return string.replace(/[^A-Za-z0-9-' ]+/g, '');
+  }
+
+  static titleize(string) {
+    const exceptions = ["a", "an", "but", "of", "and", "for", "at", "by", "from", "the"];
+    const newArray = []
+    const splitStr = string.split(" ");
+
+    for(let i in splitStr) {
+      if (i == 0) {
+        newArray.push(this.capitalize(splitStr[i]))
+      } else if (exceptions.includes(splitStr[i])) {
+          newArray.push(splitStr[i])
+      } else {
+        newArray.push(this.capitalize(splitStr[i]))
+      }
+    }
+      return newArray.join(" ")
+  }
 }
